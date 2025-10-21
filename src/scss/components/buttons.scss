@@ -1,0 +1,29 @@
+$color-primary: #9fcc2e;
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  background-color: #9fcc2e;
+  color: white;
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+  }
+
+  &:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
