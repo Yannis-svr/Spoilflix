@@ -1,4 +1,14 @@
-.image {
+
+.texte {
+  font-size: 16px;
+  gap: 20px;
+}
+.contenu{
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+img {  width:300px;
+  height: auto;
+  border-radius: 10px;
 }
