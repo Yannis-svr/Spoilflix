@@ -12,3 +12,10 @@ img {  width:300px;
   height: auto;
   border-radius: 10px;
 }
+.oral{
+background-color:white;
+padding:20px;
+border-radius: 10px;
+&-text {
+color:yellow;}
+}
