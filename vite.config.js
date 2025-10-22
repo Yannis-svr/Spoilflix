@@ -6,7 +6,6 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                aliceinborderlands: resolve(__dirname, 'aliceInBorderlands.html'),
             },
         },
     },
