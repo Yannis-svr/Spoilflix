@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Présentation du film Pirates des Caraïbes</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="../public/Images/Logos/logo.png">
+    <link rel="stylesheet" type="text/css" href="../src/scss/main.scss">
+    <link rel="stylesheet" type="text/css" href="src/scss/pages/detail.scss">
+    <title>Spoilflix</title>
 </head>
 <body>
 
 <header>
-    <h1>Pirates des Caraïbes : La malédiction du Black Pearl</h1>
-    <p>Film réalisé par Gore Verbinski (2003)</p>
-</header>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
-<section class="contenu">
-    <div class="image">
-        <img src="" alt="Affiche Pirates des Caraïbes">
-    </div>
-
-    <div class="texte">
-        <h2>Résumé</h2>
-        <p>
-            <strong>Pirates des Caraïbes : La malédiction du Black Pearl</strong> raconte l’aventure du capitaine
-            <strong>Jack Sparrow</strong>, un pirate excentrique qui arrive dans un port en quête de son navire volé,
-            le Black Pearl. Il s’allie à <strong>Will Turner</strong>, un forgeron, pour sauver <strong>Elizabeth Swann</strong>
-            et affronter une mystérieuse malédiction qui frappe l’équipage du Black Pearl.
-        </p>
-
-        <p>
-            Le film mélange action, humour et fantastique : des pirates maudits, des trésors anciens et des batailles en mer.
-            C’est le premier volet d’une saga pleine de rebondissements et de personnages mémorables.
-        </p>
-
-        <h3>Informations principales</h3>
-        <ul>
-            <li><strong>Année :</strong> 2003</li>
-            <li><strong>Réalisateur :</strong> Gore Verbinski</li>
-            <li><strong>Acteurs :</strong> Johnny Depp, Orlando Bloom, Keira Knightley</li>
-            <li><strong>Genre :</strong> Aventure / Fantastique</li>
-            <li><strong>Note IMDb :</strong> 8.0 / 10</li>
+    <nav class="navbar">
+        <a href="/home" class="logo">
+            <img src="/Images/Logos/Logo_nom.png" alt="Logo du site">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#series">Séries</a></li>
+            <li><a href="#films">Films</a></li>
+            <li><a href="#liste">Liste</a></li>
         </ul>
+    </nav>
 
-        <a href="https://www.youtube.com/watch?v=naQr0uTrH_s" target="_blank" class="bouton">Voir la bande-annonce</a>
-    </div>
-</section>
+</header>
+<main>
+    <section class="contenu">
+        <div class="image">
+            <img src="/Images/Affiche Films/piratedescaraibes.jpeg" alt="Affiche Pirates des Caraïbes">
+        </div>
 
-<footer>
-    <p>Page créée par un étudiant - projet HTML/CSS (2025)</p>
-</footer>
+        <div class="texte">
+            <h1>Pirates des Caraïbes : La malédiction du Black Pearl</h1>
+            <p>Film réalisé par Gore Verbinski (2003)</p>
+            <h2>Résumé</h2>
+            <p>
+                <strong>Pirates des Caraïbes : La malédiction du Black Pearl</strong> raconte l’aventure du capitaine
+                <strong>Jack Sparrow</strong>, un pirate excentrique qui arrive dans un port en quête de son navire volé,
+                le Black Pearl. Il s’allie à <strong>Will Turner</strong>, un forgeron, pour sauver <strong>Elizabeth Swann</strong>
+                et affronter une mystérieuse malédiction qui frappe l’équipage du Black Pearl.
+            </p>
 
+            <p>
+                Le film mélange action, humour et fantastique : des pirates maudits, des trésors anciens et des batailles en mer.
+                C’est le premier volet d’une saga pleine de rebondissements et de personnages mémorables.
+            </p>
+
+            <h3>Informations principales</h3>
+            <ul>
+                <li><strong>Année :</strong> 2003</li>
+                <li><strong>Réalisateur :</strong> Gore Verbinski</li>
+                <li><strong>Acteurs :</strong> Johnny Depp, Orlando Bloom, Keira Knightley</li>
+                <li><strong>Genre :</strong> Aventure / Fantastique</li>
+                <li><strong>Note IMDb :</strong> 8.0 / 10</li>
+            </ul>
+
+            <a href="https://www.youtube.com/watch?v=naQr0uTrH_s" target="_blank" class="button">Voir la
+                bande-annonce</a>
+            <a href="index.html" target="_blank" class="button">page d'accueil</a>
+        </div>
+    </section>
+
+
+</main>
 </body>
 </html>
