@@ -1,3 +1,5 @@
+@use '../variables/variables' as *;
+
 .home-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -9,7 +11,7 @@
   text-decoration: none;
   top: -40px;
   left: 10px;
-  color: #9fcc2e;
+  color: $color-primary;
 
   &:focus-visible {
     top: 10px;

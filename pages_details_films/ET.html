@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/x-icon" href="../public/Images/Logos/logo.png">
     <link rel="stylesheet" type="text/css" href="../src/scss/main.scss">
-    <link rel="stylesheet" type="text/css" href="src/scss/pages/detail.scss">
+    <link rel="stylesheet" type="text/css" href="../src/scss/pages/detail.scss">
     <title>Spoilflix</title>
 </head>
 
@@ -15,7 +15,7 @@
 
     <nav class="navbar">
         <a href="/home" class="logo">
-            <img src="/Images/Logos/Logo_nom.png" alt="Logo du site">
+            <img src="/Images/Logos/logo_nom.png" alt="Logo du site">
         </a>
         <ul class="nav-links">
             <li><a href="#series">Séries</a></li>
@@ -24,15 +24,23 @@
         </ul>
     </nav>
 </header>
+<nav aria-label="Fil d’Ariane" class="fil-ariane">
+    <ol>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#films">Films</a></li>
+        <li aria-current="page">ET</li>
+    </ol>
+</nav>
 
 <main>
     <section id="skip-link" class="contenu">
         <div class="image">
-            <img src="/Images/Affiche Films/ET.jpeg"
+            <img src="https://upload.wikimedia.org/wikipedia/en/6/66/E_t_the_extra_terrestrial_ver3.jpg"
                  alt="Affiche du film E.T.">
         </div>
 
-
+        <h1>E.T. l'extra-terrestre</h1>
+        <p>Film réalisé par Steven Spielberg (1982)</p>
 
         <div class="texte">
 
@@ -50,12 +58,12 @@
             </p>
 
             <h3>Informations principales</h3>
-            <ul>
-                <li><strong>Année :</strong> 1982</li>
-                <li><strong>Réalisateur :</strong> Steven Spielberg</li>
-                <li><strong>Acteurs :</strong> Henry Thomas, Drew Barrymore, Dee Wallace</li>
-                <li><strong>Genre :</strong> Science-fiction / Famille</li>
-                <li><strong>Note IMDb :</strong> 7.9 / 10</li>
+            <ul class="liste-details">
+                <li class="liste-details-infos"><strong>Année :</strong> 1982</li>
+                <li class="liste-details-infos"><strong>Réalisateur :</strong> Steven Spielberg</li>
+                <li class="liste-details-infos"><strong>Acteurs :</strong> Henry Thomas, Drew Barrymore, Dee Wallace</li>
+                <li class="liste-details-infos"><strong>Genre :</strong> Science-fiction / Famille</li>
+                <li class="liste-details-infos"><strong>Note IMDb :</strong> 7.9 / 10</li>
             </ul>
 
             <a href="https://www.youtube.com/watch?v=qYAETtIIClk" target="_blank" class="button">Voir la

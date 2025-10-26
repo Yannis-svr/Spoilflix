@@ -1,4 +1,4 @@
-$color-primary: #9fcc2e;
+@use '../variables/variables' as *;
 
 .button {
   display: inline-block;
@@ -9,11 +9,11 @@ $color-primary: #9fcc2e;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  background-color: #9fcc2e;
-  color: white;
+  background-color: $color-primary;
+  color: $color-accentuation;
 
   &:hover {
-    background-color: darken($color-primary, 10%);
+    background-color: darken($color-primary, 20%);
   }
 
   &:active {

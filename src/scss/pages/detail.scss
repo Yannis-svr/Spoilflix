@@ -1,26 +1,11 @@
-$color-primary: #9fcc2e;
-
-
-$spacing-xs: 0.5rem;
-$spacing-sm: 1rem;
-$spacing-md: 1.5rem;
-$spacing-lg: 2rem;
-$spacing-xl: 3rem;
-
-
-$font-size-base: 1rem;
-$font-size-lg: 1.1rem;
-$font-size-xl: 1.3rem;
-$font-size-h3: 1.8rem;
-$font-size-h2: 2.5rem;
-
+@use '../variables/variables' as *;
 
 .skip-link {
   position: absolute;
   text-decoration: none;
   top: -40px;
   left: 10px;
-  color: #9fcc2e;
+  color: $color-primary;
 
   &:focus-visible {
     top: 10px;
@@ -43,6 +28,7 @@ main {
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 .image {
   flex-shrink: 0;
   align-self: flex-start;
@@ -69,13 +55,14 @@ main {
   flex-direction: column;
   gap: 10px;
 }
+
 h2 {
   font-size: $font-size-h2;
   font-weight: 700;
   color: #9fcc2e;
   margin-bottom: $spacing-xs;
   padding-bottom: $spacing-sm;
-  border-bottom: 4px solid ;
+  border-bottom: 4px solid;
   display: inline-block;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -130,7 +117,7 @@ p {
   }
 }
 
-ul {
+ .liste-details {
   list-style: none;
   padding-left: 0;
   display: grid;
@@ -139,7 +126,7 @@ ul {
   margin-top: $spacing-sm;
   margin-bottom: $spacing-md;
 
-  li {
+  .liste-details-infos {
     font-size: $font-size-lg;
     padding: $spacing-sm $spacing-md;
     background: linear-gradient(
