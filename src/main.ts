@@ -7,7 +7,7 @@ async function init() {
         const section = document.querySelector('.home-section');
         if (!section) return;
 
-        // Vider les cartes écrites en dur dans le HTML
+
         section.innerHTML = '';
 
         data.results.forEach(character => {

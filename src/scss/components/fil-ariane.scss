@@ -19,7 +19,7 @@
       padding-left: 0.8rem;
 
       &::before {
-        content: "/";
+        content: '/';
         position: absolute;
         left: 0;
         color: lighten($color-secondary, 25%);
@@ -37,7 +37,7 @@
       }
     }
 
-    &[aria-current="page"] {
+    &[aria-current='page'] {
       color: lighten($color-secondary, 40%);
     }
   }
