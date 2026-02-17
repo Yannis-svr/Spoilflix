@@ -1,14 +1,20 @@
 import { fetchCharacters } from './api/rickmorty';
 
-async function init() {
+const section = document.querySelector('#mainCharacters')!;
+const loadingMsg = document.getElementById('loading-msg')!;
+const errorMsg = document.getElementById('error-msg')!;
+const retryBtn = document.getElementById('retry-btn')!;
+
+async function loadCharacters() {
+
+    loadingMsg.hidden = false;
+    errorMsg.hidden = true;
+    section.innerHTML = '';
+
     try {
         const data = await fetchCharacters(1);
 
-        const section = document.querySelector('.home-section');
-        if (!section) return;
-
-
-        section.innerHTML = '';
+        loadingMsg.hidden = true;
 
         data.results.forEach(character => {
             const card = document.createElement('div');
@@ -22,8 +28,15 @@ async function init() {
         });
 
     } catch (error) {
-        console.error(error);
+
+        loadingMsg.hidden = true;
+        errorMsg.hidden = false;
     }
 }
 
-init();
+
+retryBtn.addEventListener('click', () => {
+    void loadCharacters();
+});
+
+loadCharacters();

@@ -9,5 +9,5 @@ export async function fetchCharacters(page: number): Promise<ApiResponse<Charact
         throw new Error(`Erreur ${response.status} : ${response.statusText}`);
     }
 
-    return response.json() as Promise<ApiResponse<Character>>;
+    return await response.json() as Promise<ApiResponse<Character>>;
 }
