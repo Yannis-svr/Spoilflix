@@ -3,22 +3,37 @@
 .card-media {
   background-color: $cards-background-color;
   border-radius: 16px;
-  padding: 10px;
   text-align: center;
   overflow: hidden;
 
-  &__title {
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  &:hover,
-  &:focus-within {
-    transform: translateY(-5px);
-  }
-
-  img {
+  &__image {
     width: 100%;
-    border-radius: 6px;
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 0; // Retire le border-radius de l'image
+    }
+  }
+
+  &__content {
+    padding: 12px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 6px 0;
+    color: #fff; // Assure-toi que c'est visible
+  }
+
+  &__meta {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
   }
 }
