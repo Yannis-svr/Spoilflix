@@ -15,6 +15,7 @@ let favorites: Set<number> = loadFavorites();
 let allCharacters: Character[] = [];
 let currentSort: SortCriteria = 'id-asc';
 let activeFilter: 'all' | 'favorites' = 'all';
+let searchTerm = '';
 
 async function loadCharacters(page: number, append = false) {
     loadingMsg.hidden = false;
@@ -55,11 +56,26 @@ function renderCharacters() {
         : allCharacters;
 
 
+    if (searchTerm.trim() !== '') {
+        toDisplay = toDisplay.filter(c =>
+            c.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
+
+
     const sorted = sortCharacters(toDisplay, currentSort);
 
 
-    if (sorted.length === 0 && activeFilter === 'favorites') {
-        section.innerHTML = '<p style="color: #aaa; text-align: center; padding: 40px;">Aucun favori pour le moment. Cliquez sur ⭐ pour en ajouter !</p>';
+    if (sorted.length === 0) {
+        let message = '';
+        if (activeFilter === 'favorites' && searchTerm === '') {
+            message = 'Aucun favori pour le moment';
+        } else if (searchTerm !== '') {
+            message = `Aucun personnage trouvé pour "${searchTerm}"`;
+        } else {
+            message = 'Aucun personnage trouvé.';
+        }
+        section.innerHTML = `<p style="color: #aaa; text-align: center; padding: 40px;">${message}</p>`;
         return;
     }
 
@@ -111,7 +127,6 @@ section.addEventListener('click', (e) => {
     }
 });
 
-// Gestion du tri
 const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
 if (sortSelect) {
     sortSelect.addEventListener('change', () => {
@@ -139,5 +154,14 @@ filterFavBtn?.addEventListener('click', () => {
     loadMoreBtn.hidden = true;
     renderCharacters();
 });
+
+
+const searchInput = document.getElementById('search-input') as HTMLInputElement;
+if (searchInput) {
+    searchInput.addEventListener('input', () => {
+        searchTerm = searchInput.value;
+        renderCharacters();
+    });
+}
 
 loadCharacters(1);

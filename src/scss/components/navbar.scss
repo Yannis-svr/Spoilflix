@@ -128,3 +128,49 @@ header {
     }
   }
 }
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 24px;
+
+  &__search {
+    flex: 1;
+    max-width: 400px;
+  }
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgb(0, 0, 0);
+  color: #9fcc2e;
+  font-size: 14px;
+  transition: all 0.3s;
+
+  &::placeholder {
+    color: rgb(79, 103, 22);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accentuation;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+
+    &__search {
+      order: 3;
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+}

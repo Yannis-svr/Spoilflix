@@ -17,22 +17,30 @@
         <a href="/home" class="logo">
             <img src="/Images/Logos/logo_nom.png" alt="Logo du site"/>
         </a>
-        <ul class="nav-links">
-            <li><a href="#series">Séries</a></li>
-            <li><a href="#films">Films</a></li>
-            <li><a href="#liste">Liste</a></li>
-        </ul>
+
+        <!-- Barre de recherche -->
+        <div class="navbar__search">
+            <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Rechercher un personnage..."
+                    class="search-input"
+            />
+        </div>
+
+
+        <div>
+            <button id="filter-all" class="button filter-btn filter-btn--active">Tous</button>
+            <button id="filter-fav" class="button filter-btn">Favoris</button>
+        </div>
     </nav>
 </header>
 
 <main>
     <div id="skip-link">
-        <p class="titre">Films</p>
+        <p class="titre">Personnage Rick and Morty</p>
     </div>
-    <div>
-        <button id="filter-all" class="button filter-btn filter-btn--active">Tous</button>
-        <button id="filter-fav" class="button filter-btn">Favoris</button>
-    </div>
+
     <div style="padding: 20px; text-align: center;">
 
         <label for="sort-select" style="color: #fff; margin-right: 10px;">Trier par :</label>
