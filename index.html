@@ -29,19 +29,34 @@
     <div id="skip-link">
         <p class="titre">Films</p>
     </div>
-
+    <div style="padding: 20px; text-align: center;">
+        <label for="sort-select" style="color: #fff; margin-right: 10px;">Trier par :</label>
+        <select id="sort-select" class="button">
+            <option value="id-asc">Par défaut (ID)</option>
+            <option value="name-asc">Nom (A → Z)</option>
+            <option value="name-desc">Nom (Z → A)</option>
+            <option value="episodes-desc">Plus d'épisodes</option>
+            <option value="episodes-asc">Moins d'épisodes</option>
+        </select>
+    </div>
     <section class="home-section">
         <div id="mainCharacters"></div>
     </section>
+
     <div style="text-align: center; margin: 20px 0;">
         <button id="load-more-btn" class="button" hidden>Voir plus</button>
     </div>
+
     <p id="loading-msg" hidden>Chargement…</p>
+
     <div id="error-msg" hidden>
         <p>Une erreur est survenue.</p>
         <button id="retry-btn">Réessayer</button>
     </div>
 </main>
+
+
+<!-- Un seul script, à la toute fin -->
 <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

@@ -1,4 +1,6 @@
+import type { Character } from './type/api';
 import { fetchCharacters } from './api/rickmorty';
+import { loadFavorites, saveFavorites, toggleFavorite } from './utils/favorites';
 
 const section = document.querySelector('.home-section')!;
 const loadingMsg = document.getElementById('loading-msg')!;
@@ -8,9 +10,9 @@ const loadMoreBtn = document.getElementById('load-more-btn')!;
 
 let currentPage = 1;
 let totalPages = 1;
+let favorites: Set<number> = loadFavorites();
 
 async function loadCharacters(page: number, append = false) {
-    // État : chargement
     loadingMsg.hidden = false;
     errorMsg.hidden = true;
     loadMoreBtn.hidden = true;
@@ -21,57 +23,51 @@ async function loadCharacters(page: number, append = false) {
 
     try {
         const data = await fetchCharacters(page);
-
-        // Mettre à jour la pagination
         currentPage = page;
         totalPages = data.info.pages;
-
-        // État : succès
         loadingMsg.hidden = true;
 
         data.results.forEach(character => {
             const card = document.createElement('div');
             card.className = 'card-media';
-            const statusClass = character.status.toLowerCase(); // 'alive', 'dead', 'unknown'
+            card.dataset.characterId = String(character.id);
+
+            const isFavorite = favorites.has(character.id);
 
             card.innerHTML = `
-  <div class="card-media__image">
-    <img src="${character.image}" alt="${character.name}" />
-  </div>
-  <div class="card-media__content">
-    <h2 class="card-media__title">${character.name}</h2>
-    <p class="card-media__meta">
-      <span class="status status--${statusClass}">${character.status}</span>
-      · ${character.species}
-    </p>
-  </div>
-`;
+        <img src="${character.image}" alt="${character.name}" />
+        <button class="fav-btn ${isFavorite ? 'fav-btn--active' : ''}" data-fav-id="${character.id}">
+            ${isFavorite ? '★' : '☆'}
+        </button>
+        <div style="padding: 12px;">
+            <h3 style="margin: 0 0 6px 0; font-size: 18px; color: #fff;">${character.name}</h3>
+            <p style="margin: 0; font-size: 14px; color: #aaa;">
+                ${character.status} • ${character.species}
+            </p>
+        </div>
+    `;
 
             section.appendChild(card);
         });
 
-        // Afficher le bouton "Voir plus" s'il reste des pages
+
         if (currentPage < totalPages) {
             loadMoreBtn.hidden = false;
         }
 
     } catch (error) {
-        // État : erreur
         loadingMsg.hidden = true;
         errorMsg.hidden = false;
     }
 }
 
-// Bouton réessayer
 retryBtn.addEventListener('click', () => {
     currentPage = 1;
     void loadCharacters(currentPage);
 });
 
-// Bouton "Voir plus"
 loadMoreBtn.addEventListener('click', () => {
-    void loadCharacters(currentPage + 1, true); // append = true
+    void loadCharacters(currentPage + 1, true);
 });
 
 loadCharacters(1);
-
