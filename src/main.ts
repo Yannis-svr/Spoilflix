@@ -14,6 +14,7 @@ let totalPages = 1;
 let favorites: Set<number> = loadFavorites();
 let allCharacters: Character[] = [];
 let currentSort: SortCriteria = 'id-asc';
+let activeFilter: 'all' | 'favorites' = 'all';
 
 async function loadCharacters(page: number, append = false) {
     loadingMsg.hidden = false;
@@ -35,7 +36,7 @@ async function loadCharacters(page: number, append = false) {
 
         renderCharacters();
 
-        if (currentPage < totalPages) {
+        if (currentPage < totalPages && activeFilter === 'all') {
             loadMoreBtn.hidden = false;
         }
 
@@ -48,7 +49,19 @@ async function loadCharacters(page: number, append = false) {
 function renderCharacters() {
     section.innerHTML = '';
 
-    const sorted = sortCharacters(allCharacters, currentSort);
+
+    let toDisplay = activeFilter === 'favorites'
+        ? allCharacters.filter(c => favorites.has(c.id))
+        : allCharacters;
+
+
+    const sorted = sortCharacters(toDisplay, currentSort);
+
+
+    if (sorted.length === 0 && activeFilter === 'favorites') {
+        section.innerHTML = '<p style="color: #aaa; text-align: center; padding: 40px;">Aucun favori pour le moment. Cliquez sur ⭐ pour en ajouter !</p>';
+        return;
+    }
 
     sorted.forEach(character => {
         const card = document.createElement('div');
@@ -94,13 +107,11 @@ section.addEventListener('click', (e) => {
         saveFavorites(favorites);
 
 
-        const isActive = favorites.has(id);
-        favBtn.classList.toggle('fav-btn--active', isActive);
-        favBtn.textContent = isActive ? '★' : '☆';
+        renderCharacters();
     }
 });
 
-
+// Gestion du tri
 const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
 if (sortSelect) {
     sortSelect.addEventListener('change', () => {
@@ -108,5 +119,25 @@ if (sortSelect) {
         renderCharacters();
     });
 }
+
+
+const filterAllBtn = document.getElementById('filter-all');
+const filterFavBtn = document.getElementById('filter-fav');
+
+filterAllBtn?.addEventListener('click', () => {
+    activeFilter = 'all';
+    filterAllBtn.classList.add('filter-btn--active');
+    filterFavBtn?.classList.remove('filter-btn--active');
+    loadMoreBtn.hidden = currentPage >= totalPages;
+    renderCharacters();
+});
+
+filterFavBtn?.addEventListener('click', () => {
+    activeFilter = 'favorites';
+    filterFavBtn.classList.add('filter-btn--active');
+    filterAllBtn?.classList.remove('filter-btn--active');
+    loadMoreBtn.hidden = true;
+    renderCharacters();
+});
 
 loadCharacters(1);
