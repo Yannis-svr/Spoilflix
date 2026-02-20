@@ -1,18 +1,21 @@
 @use '../variables/variables' as *;
 
 .card-media {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   background-color: $cards-background-color;
   border-radius: 16px;
   overflow: hidden;
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 
   img {
     width: 100%;
-    display: block;
-    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  &__content {
+   width: 100%;
   }
 
   &:hover,
