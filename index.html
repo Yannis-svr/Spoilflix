@@ -17,7 +17,9 @@
         <a href="/home" class="logo">
           <img src="/Images/Logos/logo_nom.png" alt="Logo du site" />
         </a>
-
+        <button id="theme-toggle" class="button" aria-label="Changer de thème">
+          ☀ Clair
+        </button>
         <div class="navbar__search">
           <input
             type="text"
@@ -38,7 +40,16 @@
       <div id="skip-link">
         <p class="titre">Personnage Rick and Morty</p>
       </div>
-      <!-- Stats -->
+      <div style="padding: 20px; text-align: center">
+        <label for="sort-select" style="color: #fff; margin-right: 10px">Trier par :</label>
+        <select id="sort-select" class="button">
+          <option value="id-asc">Par défaut (ID)</option>
+          <option value="name-asc">Nom (A → Z)</option>
+          <option value="name-desc">Nom (Z → A)</option>
+          <option value="episodes-desc">Plus d'épisode</option>
+          <option value="episodes-asc">Moins d'épisodes</option>
+        </select>
+      </div>
       <div class="stats-bar">
         <div class="stats-bar__item">
           <span class="stats-bar__value" id="stat-total">0</span>
@@ -62,16 +73,7 @@
         </div>
       </div>
 
-      <div style="padding: 20px; text-align: center">
-        <label for="sort-select" style="color: #fff; margin-right: 10px">Trier par :</label>
-        <select id="sort-select" class="button">
-          <option value="id-asc">Par défaut (ID)</option>
-          <option value="name-asc">Nom (A → Z)</option>
-          <option value="name-desc">Nom (Z → A)</option>
-          <option value="episodes-desc">Plus d'épisode</option>
-          <option value="episodes-asc">Moins d'épisodes</option>
-        </select>
-      </div>
+
       <section class="home-section">
         <div id="mainCharacters"></div>
       </section>

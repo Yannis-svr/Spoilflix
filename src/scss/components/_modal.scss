@@ -15,7 +15,8 @@
 
   &__content {
     position: relative;
-    background: #1a1a1a;
+    background:
+            #1a1a1a;
     border-radius: 16px;
     max-width: 600px;
     width: 90%;
@@ -65,7 +66,8 @@
     font-size: 24px;
     font-weight: bold;
     margin: 0 0 8px 0;
-    color: #9fcc2e;
+    color:
+            #9fcc2e;
   }
 
   &__status {
@@ -77,11 +79,13 @@
 
     &--alive {
       background: rgba(46, 213, 115, 0.2);
-      color: #2ed573;
+      color:
+              #2ed573;
     }
     &--dead {
       background: rgba(255, 71, 87, 0.2);
-      color: #ff4757;
+      color:
+              #ff4757;
     }
     &--unknown {
       background: rgba(150, 150, 150, 0.2);
@@ -112,7 +116,8 @@
 
   &__value {
     font-size: 16px;
-    color: #9fcc2e;
+    color:
+            #9fcc2e;
   }
 
   &__episodes {
@@ -132,11 +137,11 @@
 
   &__episode-list {
     font-size: 14px;
-    color: #9fcc2e;
+    color:
+            #9fcc2e;
     line-height: 1.6;
   }
 }
-
 
 @media (max-width: 768px) {
   .modal__content {
