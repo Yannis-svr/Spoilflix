@@ -1,75 +1,70 @@
 <!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/x-icon" href="/Images/Logos/logo.png"/>
-    <link rel="stylesheet" type="text/css" href="src/scss/main.scss"/>
-    <link rel="stylesheet" type="text/css" href="src/scss/pages/home.scss"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/Images/Logos/logo.png" />
+    <link rel="stylesheet" type="text/css" href="src/scss/main.scss" />
+    <link rel="stylesheet" type="text/css" href="src/scss/pages/home.scss" />
     <title>R&M Wiki</title>
-</head>
+  </head>
 
-<body>
-<header>
-    <a href="#skip-link" class="skip-link">Aller au contenu</a>
+  <body>
+    <header>
+      <a href="#skip-link" class="skip-link">Aller au contenu</a>
 
-    <nav class="navbar">
+      <nav class="navbar">
         <a href="/home" class="logo">
-            <img src="/Images/Logos/logo_nom.png" alt="Logo du site"/>
+          <img src="/Images/Logos/logo_nom.png" alt="Logo du site" />
         </a>
 
-        <!-- Barre de recherche -->
         <div class="navbar__search">
-            <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Rechercher un personnage..."
-                    class="search-input"
-            />
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Rechercher un personnage..."
+            class="search-input"
+          />
         </div>
-
 
         <div>
-            <button id="filter-all" class="button filter-btn filter-btn--active">Tous</button>
-            <button id="filter-fav" class="button filter-btn">Favoris</button>
+          <button id="filter-all" class="button filter-btn filter-btn--active">Tous</button>
+          <button id="filter-fav" class="button filter-btn">Favoris</button>
         </div>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<main>
-    <div id="skip-link">
+    <main>
+      <div id="skip-link">
         <p class="titre">Personnage Rick and Morty</p>
-    </div>
+      </div>
 
-    <div style="padding: 20px; text-align: center;">
-
-        <label for="sort-select" style="color: #fff; margin-right: 10px;">Trier par :</label>
+      <div style="padding: 20px; text-align: center">
+        <label for="sort-select" style="color: #fff; margin-right: 10px">Trier par :</label>
         <select id="sort-select" class="button">
-            <option value="id-asc">Par défaut (ID)</option>
-            <option value="name-asc">Nom (A → Z)</option>
-            <option value="name-desc">Nom (Z → A)</option>
-            <option value="episodes-desc">Plus d'épisodes</option>
-            <option value="episodes-asc">Moins d'épisodes</option>
+          <option value="id-asc">Par défaut (ID)</option>
+          <option value="name-asc">Nom (A → Z)</option>
+          <option value="name-desc">Nom (Z → A)</option>
+          <option value="episodes-desc">Plus d'épisode</option>
+          <option value="episodes-asc">Moins d'épisodes</option>
         </select>
-    </div>
-    <section class="home-section">
+      </div>
+      <section class="home-section">
         <div id="mainCharacters"></div>
-    </section>
+      </section>
 
-    <div style="text-align: center; margin: 20px 0;">
+      <div style="text-align: center; margin: 20px 0">
         <button id="load-more-btn" class="button" hidden>Voir plus</button>
-    </div>
+      </div>
 
-    <p id="loading-msg" hidden>Chargement…</p>
+      <p id="loading-msg" hidden>Chargement…</p>
 
-    <div id="error-msg" hidden>
+      <div id="error-msg" hidden>
         <p>Une erreur est survenue.</p>
         <button id="retry-btn">Réessayer</button>
-    </div>
-</main>
+      </div>
+    </main>
 
-
-
-<script type="module" src="/src/main.ts"></script>
-</body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
