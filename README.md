@@ -1,160 +1,90 @@
-# Spoilflix
+#  Rick & Morty Wiki
 
-**Spoilflix** est un projet front-end réalisé dans le cadre du module _Intégration Web_.  
-L’objectif est de créer un site multi-page responsive présentant une grille de médias (films, séries, jeux vidéo, etc.), avec des pages de détail accessibles et un code SCSS structuré.
+Application web interactive pour explorer l'univers de Rick & Morty, développée en TypeScript vanilla avec Vite.
 
----
-
-## Objectifs pédagogiques
-
-- Produire des pages **HTML sémantiques**, **accessibles** et **responsives**.
-- Organiser le **CSS avec Sass** (architecture claire et performante).
-- Maîtriser la **cascade, la performance et les conventions BEM**.
-- Utiliser **Vite** comme serveur de développement.
-- Réaliser une **fiche détaillée** par élément sans utiliser de JavaScript.
+![Rick & Morty](https://via.placeholder.com/800x400?text=Rick+%26+Morty+Wiki)
 
 ---
 
-## Stack technique
+##  Sommaire
 
-- **HTML5**
-- **SCSS (Sass)** compilé avec **Vite**
-- **Aucun JavaScript** (CSS-only interactivity)
-
----
-
-## Structure du projet
-
-project/  
-├─ pages_detail_films/  
-│ └─ Batman.html  
-│ └─ ET.html  
-│ └─FightClub.html  
-│ └─Interstellar.html  
-│ └─JurrasicPark.html  
-│ └─LeSeigneurDesAnneaux.html  
-│ └─PirateDesCaraibes.html  
-│ └─StarWars.html  
-├─ pages_detail_series/  
-│└─Arcane.html  
-│└─BreakingBad.html  
-│└─Chernobyl.html  
-│└─Interstellar.html  
-│└─GameOfThrones.html  
-│└─HousOfCards.html  
-│└─SquidGame.html  
-│└─StrangerThings.html  
-├─ public/  
-│ └─Images  
-│ └─ └─Affiches Films  
-│ └─ └─ └─arcane.jpeg  
-│ └─ └─ └─batman.jpeg  
-│ └─ └─ └─breakingbaf.jpeg  
-│ └─ └─ └─chernobyl.jpeg  
-│ └─ └─ └─ET.jpeg  
-│ └─ └─ └─fightclub.jpeg  
-│ └─ └─ └─gameofthrones.jpeg  
-│ └─ └─ └─houseofcards.jpeg  
-│ └─ └─ └─interstellar.jpeg  
-│ └─ └─ └─jurrasicpark.jpeg  
-│ └─ └─ └─piratedescaraibes.jpeg  
-│ └─ └─ └─prisonbreak.jpeg  
-│ └─ └─ └─seigneurdesanneaux.jpeg  
-│ └─ └─ └─squidgame.jpeg  
-│ └─ └─ └─starwars.jpeg  
-│ └─ └─ └─strangerthings.jpeg  
-│ └─ └─Logos  
-│ └─ └─ └─logo.png  
-│ └─ └─ └─logo.svg  
-│ └─ └─ └─logo@2x.png  
-│ └─ └─ └─logo_nom.png  
-│ └─vite.svg  
-├─ src/  
-│ └─ scss/  
-│ └─└─ components/  
-│ └─ └─ └─_components.scss  
-│ └─ └─ └─buttons.scss  
-│ └─ └─ └─card.scss  
-│ └─ └─ └─fil-ariane.scss  
-│ └─ └─ └─navbar.scss  
-│ └─└─pages/  
-│ └─ └─ └─_pages.scss  
-│ └─ └─ └─detail.scss  
-│ └─ └─ └─home.scss  
-│ └─└─variables/  
-│ └─ └─ └─_variables.scss  
-│ └─ └─ └─colors.scss  
-│ └─ └─ └─font-styles.scss  
-│ └─ └─ └─spacin.scss  
-│ └─ main.scss  
-├─.gitignore  
-├─index.html  
-├─ package.json  
-├─ppm-lock.yaml  
-└─ vite.config.js
+- [Aperçu](#aperçu)
+- [Fonctionnalités](#fonctionnalités)
+- [Technologies utilisées](#technologies-utilisées)
+- [Installation](#installation)
+- [Structure du projet](#structure-du-projet)
+- [API utilisée](#api-utilisée)
+- [Utilisation](#utilisation)
+- [Captures d'écran](#captures-décran)
+- [Auteur](#auteur)
 
 ---
 
-## Installation & lancement
+##  Aperçu
 
-1. **Installer les dépendances**
+Rick & Morty Wiki est une application web permettant de parcourir et découvrir tous les personnages de la série animée Rick & Morty. L'application offre une interface moderne avec recherche en temps réel, filtres, tri, favoris persistants, et un mode sombre/clair.
 
-   pnpm install
-
-2. **Lancer le serveur de développement**
-
-   pnpm run dev
+**Lien de démonstration** : [À ajouter si déployé]
 
 ---
 
-## Fonctionnalités principales
+##  Fonctionnalités
 
-- Grille de 8 cartes média minimum (image, titre, métadonnées).
-- Pages de détails pour chaque élément (Option A, multi-page).
-- Navigation accessible (header, lien "Aller au contenu", fil d’Ariane).
-- Focus visible et respect des bonnes pratiques d’accessibilité.
-- Responsive design (mobile-first).
-- Convention BEM pour le nommage des classes SCSS.
+### Fonctionnalités principales
 
----
+-  **Grille de personnages** : Affichage en grille responsive avec image, nom, statut et espèce
+-  **Recherche en temps réel** : Barre de recherche pour filtrer les personnages par nom
+-  **Pagination** : Bouton "Voir plus" pour charger progressivement les 826 personnages
+-  **Tri dynamique** : 5 critères de tri (A→Z, Z→A, plus/moins d'épisodes, par défaut)
+-  **Système de favoris** : Ajout/retrait de favoris avec persistance localStorage
+-  **Filtres** : Vue "Tous" / "Favoris uniquement"
+-  **Fiche détaillée** : Modale avec informations complètes du personnage
+-  **Statistiques** : Bandeau avec total affiché, favoris, moyenne d'épisodes, vivants/morts
+-  **Thème clair/sombre** : Toggle avec sauvegarde des préférences
 
-## Design & options
+### États d'UI
 
-Carte blanche sur le thème visuel.
+-  Skeletons de chargement pendant les requêtes API
+-  Message d'erreur avec bouton "Réessayer"
+-  Message si aucun favori
+-  Message si aucun résultat de recherche
 
-Respect des contrastes et du focus visible.
+### Accessibilité
 
-Optionnel :
-
-Thème clair/sombre (variables CSS).
-
-Filtres CSS-only (checkbox hack).
-
-Composants supplémentaires (badges, tags, alertes, skeletons décoratifs).
-
----
-
-## Checklist de validation
-
-Aucune erreur console
-
-Grille responsive (≥ 8 cartes)
-
-Page(s) de détail fonctionnelles
-
-Accessibilité basique (titres, alt, focus, skip link)
-
-SCSS structuré et lisible
-
-Convention BEM respectée
-
-README documenté
-
-2 captures d’écran (mobile + desktop)
+-  Navigation au clavier (Enter, Échap)
+-  Attributs ARIA (role, aria-label, aria-hidden)
+-  Design responsive (mobile, tablette, desktop)
 
 ---
 
-## Auteurs
+## ️ Technologies utilisées
 
-Yannis Savary / Clément Meuret  
-Projet réalisé dans le cadre du module Intégration Web – MyDigitalSchool Lille (2025).
+### Core
+
+- **TypeScript** (strict mode) : Typage statique pour éviter les erreurs
+- **Vite** : Build tool et dev server ultra-rapide
+- **SCSS** : Préprocesseur CSS avec variables et nesting
+
+### API
+
+- **Rick & Morty API** : API RESTful gratuite sans authentification
+   - URL : `https://rickandmortyapi.com/api`
+   - 826 personnages sur 42 pages
+
+### Outils
+
+- **pnpm** : Gestionnaire de paquets rapide et efficace
+- **ESLint** : Linter pour la qualité du code
+- **Prettier** : Formateur de code
+
+---
+
+##  Installation
+
+### Prérequis
+
+- Node.js ≥ 18
+- pnpm ≥ 8
+
+### Étapes
+```bash
